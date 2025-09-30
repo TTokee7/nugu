@@ -1,0 +1,359 @@
+/* style.css */
+
+/* 基本設定 */
+* {
+    box-sizing: border-box;
+    /* 要素のサイズ計算を簡単に */
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- @font-face 定義 (ファイルの先頭に追加) ----- */
+@font-face {
+    font-family: 'KiwiMaru';
+    /* CSSで使うフォント名 */
+    src: url('fonts/KiwiMaru-Light.ttf') format('truetype');
+    /* 通常の太さのファイル */
+    font-weight: 400;
+    /* 通常 (normal) */
+    font-style: normal;
+    font-display: swap;
+    /* 推奨 */
+}
+
+@font-face {
+    font-family: 'KiwiMaru';
+    /* 同じフォント名 */
+    src: url('fonts/KiwiMaru-Light.ttf') format('truetype');
+    /* 太字のファイル */
+    font-weight: 700;
+    /* 太字 (bold) */
+    font-style: normal;
+    font-display: swap;
+    /* 推奨 */
+}
+
+@font-face {
+    font-family: 'Nanum Myeongjo';
+    /* 你在 CSS 中使用的字體名稱 */
+    src: url('fonts/NanumMyeongjo-Regular.ttf') format('truetype');
+    /* 假設你的字體文件在 fonts 文件夾下，且名為 NanumMyeongjo-Regular.ttf */
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ----- @font-face 定義ここまで ----- */
+body {
+    font-family: 'Nanum Myeongjo', 'KiwiMaru', sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #c0d9f7);
+    color: #4a4a4a;
+    line-height: 1.6;
+    /* 行間を適切に */
+}
+
+a {
+    color: inherit;
+    /* 基本的に親要素の色を継承 */
+    text-decoration: none;
+    /* 下線をデフォルトで消す */
+}
+
+ul {
+    list-style: none;
+    /* リストの点を消す */
+}
+
+/* ヘッダー */
+.site-header {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    /* スクロール追従 */
+    top: 0;
+    z-index: 50;
+    /* 他要素より手前に */
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #000000;
+    letter-spacing: 0.05em;
+    margin-left: 40px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 4rem;
+    font-size: 1rem;
+    margin-right: 120px;
+}
+
+.nav-link {
+    color: #000000;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* ヒーローセクション */
+.hero-section {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(to right, #f7f4ed, #c7def4);
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2b6cb0;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #4a4a4a;
+    /* 元のインラインスタイル */
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: #4799c9;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.hero-button:hover {
+    background-image: linear-gradient(90deg, #99d1f2, #56acdf);
+    /* transform: scale(1.05); */
+    transform: rotate(7deg);
+}
+
+/* セクション共通タイトル */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* グループセクション */
+.groups-section {
+    padding: 3.5rem 12rem;
+    background-color: white;
+}
+
+.groups-title {
+    color: #3a7ba2;
+}
+
+.groups-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .groups-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+.group-card {
+    display: flex;
+    /* 使用 flexbox 布局 */
+    flex-direction: column;
+    /* 让内容垂直排列 */
+    justify-content: center;
+    /* 垂直方向居中 */
+    align-items: center;
+    /* 水平方向居中 */
+    background-color: rgb(255, 253, 251);
+    border: 0.3px solid #000000;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.group-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    background-color: #fffbf4;
+}
+
+.card-image {
+    width: 210px;
+    /* 设置图片宽度，根据实际图片调整 */
+    height: 180px;
+    /* 设置图片高度，根据实际图片调整 */
+    object-fit: cover;
+    /* 保持图片比例，裁剪以适应容器 */
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3a7ba2;
+}
+
+.card-description {
+    color: #4b5563;
+}
+
+
+/* チェキ */
+/* .photo {
+    display: grid;
+    place-content: center;
+}
+
+.photo-01,
+.photo-02 {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    width: 300px;
+    height: 450px;
+    transform: rotate(-5deg);
+    padding-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 5px rgb(0 0 0 / 0.3);
+}
+
+.photo-01>p,
+.photo-02>p {
+    font-family: "Nanum Pen Script", cursive;
+    font-size: 30px;
+    color: #333333;
+}
+
+.photo-01,
+.photo-02 {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    width: 300px;
+    height: 450px;
+    transform: rotate(-5deg);
+    padding-top: 20px;
+    box-shadow: 0 4px 5px rgb(0 0 0 / 0.3);
+}
+
+.photo-02 {
+    z-index: 10;
+    transform: rotate(5deg);
+}
+
+.photo-01::before,
+.photo-01::after,
+.photo-02::before,
+.photo-02::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 110px;
+    height: 44px;
+    transform: rotate(-20deg);
+    background-image: url("dot.jpg");
+    background-repeat: no-repeat;
+    background-size: 850%;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 0.1);
+    ;
+    opacity: 0.7;
+}
+
+.photo-01::after,
+.photo-02::after {
+    top: 400px;
+    right: -30px;
+    left: auto;
+    transform: rotate(-30deg);
+}
+
+.photo-02::before,
+.photo-02::after {
+    background-image: url("dot2.png");
+}
+
+.photo-01>img,
+.photo-02>img {
+    width: 270px;
+    height: 340px;
+    object-fit: cover;
+} */
+
+/* イベントセクション */
+.events-section {
+    padding: 3.5rem 1.5rem;
+    background: linear-gradient(to bottom, #ffffff, #d0e6fa);
+}
+
+.events-title {
+    color: #3a7ba2;
+    margin-bottom: 2rem;
+}
+
+.event-filters {
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* 画面幅が狭い時に折り返す */
+    justify-content: center;
+    gap: 1rem;
+}
+
+.filter-select {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid #000000;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    min-width: 150px;
+    /* 最小幅 */
+}
+
+.event-list {
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.event-item {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #afd3f8;
+}
+
+.event-item-title {
+    color: #3a7ba2;
+    font-weight: bold;
+    /* strongタグのデフォルトでもあるが明示的に */
+}
+
+/* フッター */
+.site-footer {
+    background-color: #afd3f8;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
